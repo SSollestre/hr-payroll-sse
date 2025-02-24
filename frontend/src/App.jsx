@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./CSS/App.css";
 
 // Import components
@@ -8,7 +8,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/homepage" element={<Homepage />}></Route>
+        {/* Homepage */}
+        <Route path="/" element={<Navigate to="/homepage/guest" />} />
+        <Route path="/homepage" element={<Navigate to="/homepage/guest" />} />
+        <Route path="/homepage/:role" element={<Homepage />}></Route>
       </Routes>
     </>
   );
